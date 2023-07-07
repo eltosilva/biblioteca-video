@@ -1,9 +1,11 @@
-import { Header } from './styles'
+import { StyleHeader } from './styles'
 
 export default () => {
   return (
-    <Header>
-      <img src='/img/logo.png' alt='logo marca da leadster' />
-    </Header>
+    <StyleHeader>
+      <div>
+        <img src='/img/logo.png' alt='logo marca da leadster' />
+      </div>
+    </StyleHeader>
   )
 }

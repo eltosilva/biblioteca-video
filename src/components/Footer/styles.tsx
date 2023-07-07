@@ -4,14 +4,10 @@ import { styled } from 'styled-components'
 
 export const StyleFooter = styled.footer`
   background-color: #fbfbfd;
-`
 
-
-/*
-export const Section = styled.section`
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
+  section {
+    padding: 2.25rem 0;
+  }
 `
 
 export const Row = styled.div`
@@ -29,6 +25,14 @@ export const Row = styled.div`
     color: #677294;
   }
 `
+
+/*
+export const Section = styled.section`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+`
+
 
 export const SiteMap = styled.div`
   display: flex;

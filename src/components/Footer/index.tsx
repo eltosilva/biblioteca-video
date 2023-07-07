@@ -1,17 +1,18 @@
-import { StyleFooter } from './style'
+import { Row, StyleFooter } from './styles'
 
 export default () => {
   return (
     <StyleFooter>
-      
+      <section>
+         <Row>
+           <img src="/img/logo.png" alt="" />
+           <p>Transformando visitantes em clientes.</p>
+         </Row>
+      </section>
     </StyleFooter>
   )
 }
       // <Section>
-      //   <Row>
-      //     <img src="/img/logo.png" alt="" />
-      //     <p>Transformando visitantes em clientes.</p>
-      //   </Row>
       //   <SiteMap>
       //     <ul>
       //       <h3>Links Principais</h3>
