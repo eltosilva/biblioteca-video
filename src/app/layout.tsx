@@ -1,8 +1,12 @@
-import Footer from '@/components/footer'
+import localFont from 'next/font/local'
+
 import GlobalStyles from '@/components/globalstyles'
-import Header from '@/components/header'
+
 import StyledComponentsRegistry from '@/lib/registry'
+import Footer from '@/components/Footer'
+import Header from '@/components/Header'
 import { IProps } from '@/types/props'
+import Main from '@/components/Main'
 
 export const metadata = {
   title: 'Biblioteca de Vídeos',
@@ -10,14 +14,31 @@ export const metadata = {
   charset: 'utf-8'
 }
 
+const jakarta = localFont({
+  src: [
+    {
+      path: '../../public/fontes/Plus_Jakarta_Sans/PlusJakartaSans-Italic-VariableFont_wght.ttf',
+      weight: '400',
+      style: 'italic'
+    },
+    {
+      path: '../../public/fontes/Plus_Jakarta_Sans/PlusJakartaSans-VariableFont_wght.ttf',
+      weight: '400',
+      style: 'normal'
+    }
+  ],
+  display: 'swap'
+})
+
+
 export default function RootLayout({ children }: IProps) {
   return (
-    <html lang="pt-br">
+    <html lang="pt-br" className={jakarta.className}>
       <body>
         <StyledComponentsRegistry>
           <GlobalStyles />
           <Header />
-          {children}
+          <Main> {children}</Main>
           <Footer />
         </StyledComponentsRegistry>
       </body>
