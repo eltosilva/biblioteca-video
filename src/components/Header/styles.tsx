@@ -18,6 +18,6 @@ export const StyleHeader = styled.header`
   }
 
   img {
-    height: 2.25em;
+    height: 2.25rem;
   }
 `

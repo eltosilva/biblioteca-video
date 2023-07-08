@@ -4,8 +4,11 @@ export default () => {
   return (
     <StyleHeader>
       <div>
-        <img src='/img/logo.png' alt='logo marca da leadster' />
+        <h1>
+          <img src='/img/logo.png' alt='logo marca da leadster' />
+        </h1>
       </div>
     </StyleHeader>
   )
+  //
 }
