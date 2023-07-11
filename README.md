@@ -1,34 +1,15 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# SPA com NextJS
 
-## Getting Started
+Inicio do projeto: 06/07/2023
 
-First, run the development server:
+## Passo-a-Passo
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+Está é a primeira vez que trabalho como o NextJS, já tinha estudado o ReactJS mas nunca utilizado em um projeto prático.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Comecei a ler e fazer cursos sobre NextJS no dia 01/06/2023;
+- Como abordagem inicial montei a estrutura básica da página, de forma a garantir que ela tivesse um cabeçalho, corpo e rodapé semânticamente correto;
+- Configurei o **styled componentes**, algo que fez quebra a aplicação por não está usando *'use client'* no inicio arquivo, só depois descobri que o *'use client'* é por causa do ReactJS e não do styled;
+- Configurei o **Jest**, mas até o momento não o utilizei no projeto (11/07/23);
+- Desenvolvi o header e o footer da página, tive dificuldade para acertar as medidas dos objetos, então usar o site da Leadster, como fonte de medidas e cores;
+- No main, tive dificuldade na montagem visual do Card (Não está concluido), não estava conseguindo sobre por as imagens que o compõem, a abordagem que utilizei no projeto [Jogo da Memória](https://github.com/eltosilva/jogo-memoria) não funcionou.
+- No momento (11/07/2023) a parte visual está 90% concluída, falta implementar a lógica do ordenador da lista, ainda não desenvolvi o modal.
