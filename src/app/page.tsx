@@ -1,8 +1,7 @@
-import Folder from '@/components/Home/Folder';
+import HomeMain from '@/components/Home';
 
 export default function Home() {
   return (
-    <Folder />
+    <HomeMain />
   )
 }
-//medida base da página: 1px = 0,011cm
