@@ -1,7 +1,6 @@
-import { IPropsPagination } from '@/types/props';
 import { Button, Buttons, Container } from './styles';
 
-export default function NavBar({ page, size, onClick }: { page: number, size: number, onClick: (newPage: number) => void }) {
+export default function NavBar({ page, size, onClick }: IPropsPagination) {
 
   let start = page - 2
   start = start >= 0 ? start : 0
@@ -29,4 +28,10 @@ export default function NavBar({ page, size, onClick }: { page: number, size: nu
       </Buttons>
     </Container>
   )
+}
+
+interface IPropsPagination {
+  page: number,
+  size: number,
+  onClick: (newPage: number) => void
 }

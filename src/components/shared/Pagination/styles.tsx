@@ -1,8 +1,11 @@
 'use client'
 
 import { styled } from 'styled-components'
+import { Container } from '../Styles'
 
-export const Container = styled.div`
+export const ContainerPagination = styled(Container)`
+  display: flex;
+  flex-direction: column;
   padding: 0 2rem;
 `
 

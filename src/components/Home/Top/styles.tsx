@@ -1,8 +1,9 @@
 'use client'
 
+import { Container } from '@/components/shared/Styles'
 import { styled } from 'styled-components'
 
-export const Container = styled.div`
+export const ContainerTop = styled(Container)`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -30,10 +31,6 @@ export const Container = styled.div`
       background-color: #007eff;
     }
   }
-`
-
-export const LinkWebinar = styled.span`
-
 `
 
 export const Title = styled.h1`

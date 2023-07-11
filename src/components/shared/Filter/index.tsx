@@ -1,21 +1,20 @@
 import { IPropsFilter } from '@/types/props'
-import { Container, ContainerOption } from './styles'
-import Order from '../Order'
+import { ContainerFilter, ContainerOption, List } from './styles'
 
 export default function Filter({ filters, children, onClick }: IPropsFilter) {
 
 
   return (
-    <Container>
-      <ul>
+    <ContainerFilter>
+      <List>
         {
           Array.from(filters)
             .sort((intemA, itemB) => intemA > itemB ? 1 : -1)
             .map((item, index) => (<Option key={item + index} value={item} nome="grupo-video" onClick={(value: string) => onClick(value)} />))
         }
-      </ul>
+      </List>
       {children}
-    </Container>
+    </ContainerFilter>
   )
 }
 

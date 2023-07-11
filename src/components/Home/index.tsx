@@ -5,9 +5,10 @@ import { Main } from './styles';
 
 export default function HomeMain() {
   return (
-    <Main>
+    <>
       <Top />
       <Middle />
-    </Main>
+      <Bottom />
+    </>
   )
 }

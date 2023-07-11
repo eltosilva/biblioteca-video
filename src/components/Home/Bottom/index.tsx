@@ -1,9 +1,9 @@
-import { PurpleSection } from '../styles';
+import { PurpleRow } from '../styles';
 import { BoxRight, ChatButton, Container } from './styles';
 
 export default function LastCall() {
   return (
-    <PurpleSection>
+    <PurpleRow>
       <Container>
         <div>
           <img src="/img/comparativo_img_CTA.png" />
@@ -19,6 +19,6 @@ export default function LastCall() {
           <p>Não é necessário Cartão de Crédito | <img src="/img/rating.webp" alt="" /> 4.9/5 média de satisfação</p>
         </BoxRight>
       </Container>
-    </PurpleSection>
+    </PurpleRow>
   )
 }

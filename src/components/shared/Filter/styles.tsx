@@ -1,18 +1,19 @@
 'use client'
 
 import { styled } from 'styled-components'
+import { Container } from '../Styles'
 
-export const Container = styled.div`
+export const ContainerFilter = styled(Container)`
   display: flex;
   justify-content: space-between;
 
-  ul {
-    display: flex;
-    justify-content: space-between;
-    gap: 2rem;
-    list-style: none;
-    padding: 1rem 0;
-  }
+  `
+export const List = styled.ul`
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  list-style: none;
+  padding: 1rem 0;
 `
 
 export const ContainerOption = styled.li`

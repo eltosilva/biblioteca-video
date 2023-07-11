@@ -1,21 +1,9 @@
 'use client'
 
 import { styled } from 'styled-components'
+import { EnumColor, Row } from '../shared/Styles'
 
 export const Main = styled.main`
-  margin-top: 5.75rem;
-
-  section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 3rem 0;
-  }
-
-  div {
-    width: 100%;
-    max-width: 1380px;
-  }
 
   h2 {
     font-size: 2.375rem;
@@ -39,6 +27,6 @@ export const Main = styled.main`
   }
 `
 
-export const PurpleSection = styled.section`
-  background-color: #f0f8ff;
+export const PurpleRow = styled(Row)`
+  background-color: ${EnumColor.PURPLE};
 `

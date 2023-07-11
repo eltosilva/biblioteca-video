@@ -1,8 +1,9 @@
 import GlobalStyles from '@/components/globalstyles'
 
 import StyledComponentsRegistry from '@/lib/registry'
-import Footer from '@/components/Footer'
 import Header from '@/components/Header'
+import Main from '@/components/Main'
+import Footer from '@/components/Footer'
 
 import { IProps } from '@/types/props'
 import { jakarta } from '@/fontes'
@@ -23,7 +24,9 @@ export default function RootLayout({ children }: IProps) {
         <StyledComponentsRegistry>
           <GlobalStyles />
           <Header />
-          {children}
+          <Main>
+            {children}
+          </Main>
           <Footer />
         </StyledComponentsRegistry>
       </body>

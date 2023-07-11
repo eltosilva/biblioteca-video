@@ -1,18 +1,20 @@
 'use client'
 
 import { styled } from 'styled-components'
+import { EnumColor } from '../Styles'
 
 export const PlayerImage = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
   height: 100%;
   position: absolute;
   top: 0;
   visibility: hidden;
 
   svg {
-    height: 100%;
+    height: 80%;
   }
 `
 
@@ -27,7 +29,7 @@ export const Container = styled.div`
     }
 
     h3 {
-      color: #007eff;
+      color: ${EnumColor.BLUE};
     }
 
     img {
