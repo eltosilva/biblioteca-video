@@ -1,29 +1,45 @@
-import { IPropsFilter } from '@/types/props'
-import { ContainerFilter, ContainerOption, List } from './styles'
+import { Dispatch, SetStateAction } from 'react'
+import { BoxFilter, ContainerFilter, ListFilter } from './styles'
 
-export default function Filter({ filters, children, onClick }: IPropsFilter) {
-
+export default function Filter<S extends Selectable, C extends Comparable>({ name, originalList, comparableList, setStatus }: IPropsFilter<S, C>) {
 
   return (
     <ContainerFilter>
-      <List>
-        {
-          Array.from(filters)
-            .sort((intemA, itemB) => intemA > itemB ? 1 : -1)
-            .map((item, index) => (<Option key={item + index} value={item} nome="grupo-video" onClick={(value: string) => onClick(value)} />))
-        }
-      </List>
-      {children}
+      <ListFilter>
+        {comparableList.map((comparable, index) => {
+          const fn = filterFactory<S>(comparable)
+
+          return (
+            <BoxFilter>
+              <input type='radio' id={name + index} name={name} onChange={() => setStatus(fn(originalList))} />
+              <label htmlFor={name + index}>{comparable.description}</label>
+            </BoxFilter>
+          )
+        })}
+      </ListFilter>
     </ContainerFilter>
   )
 }
 
-function Option({ value, nome, onClick }: { value: string, nome: string, onClick: Function }) {
-  const identificador = value.split(' ').join('')
-  return (
-    <ContainerOption>
-      <input type="radio" name={nome} id={'opt-' + identificador} value={value} onClick={(event) => onClick(event.currentTarget.value)} />
-      <label htmlFor={'opt-' + identificador}>{value}</label>
-    </ContainerOption>
-  )
+interface IPropsFilter<S extends Selectable, C extends Comparable> {
+  originalList: S[],
+  comparableList: C[],
+  setStatus: Dispatch<SetStateAction<S[]>>,
+  name: string
+}
+
+//Dispatch<SetStateAction<V[]>>
+export interface Comparable {
+  description: string
+  equals(object: Comparable): boolean
+}
+
+export interface Selectable {
+  select(object: Comparable): boolean
+}
+
+export function filterFactory<T extends Selectable>(standard: Comparable) {
+  return (objects: T[]) => {
+    return objects.filter(object => object.select(standard))
+  }
 }

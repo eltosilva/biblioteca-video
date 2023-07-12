@@ -1,9 +1,8 @@
-import { IPropsPagination } from '@/types/props';
-
 import Card from '../Card';
 import { ContainerPagination, DashBoard } from './styles';
 import NavBar from './NavBar';
 import { useState } from 'react';
+import { IVideo } from '@/types/props';
 
 export default function Pagination({ list, sizePage }: IPropsPagination) {
 
@@ -12,6 +11,7 @@ export default function Pagination({ list, sizePage }: IPropsPagination) {
   const quantPage = Math.floor(list.length / sizePage) + (list.length % sizePage > 0 ? 1 : 0)
   const start = page * sizePage
   const end = start + sizePage
+  
   return (
     <ContainerPagination>
       <DashBoard>
@@ -23,4 +23,9 @@ export default function Pagination({ list, sizePage }: IPropsPagination) {
       <NavBar page={page} size={quantPage} onClick={(newPage) => setPage(newPage)} />
     </ContainerPagination>
   )
+}
+
+export interface IPropsPagination {
+  list: Array<IVideo>,
+  sizePage: number
 }

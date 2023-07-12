@@ -1,28 +1,52 @@
 'use client'
 
-import { useRef, useState } from 'react';
-import Filter from '../../shared/Filter';
+import Filter, { Comparable, filterFactory } from '@/components/shared/Filter';
 import { ContainerMiddle } from './styles';
-import {listaDeVideos} from '@/dados'
-import Pagination from '@/components/shared/Pagination';
-import Order from '@/components/shared/Order';
 import { Row } from '@/components/shared/Styles';
+import { Theme, Video, videos } from '@/dados'
+import { useState } from 'react';
 
-let temas = new Set(listaDeVideos.map(item => item.tema))
+const themes = extractThemes()
 
-export default function Middle(){
+export default function Middle() {
 
-  const [list, setList] = useState(listaDeVideos)
-  const fnClick = (filter: string) => setList(listaDeVideos.filter(video => video.tema == filter))
+  const [list, setList] = useState(videos)
 
-  return(
+  return (
     <Row>
       <ContainerMiddle>
-        <Filter filters={temas} onClick={fnClick}>
-          <Order />
-        </Filter>
-        <Pagination list={list} sizePage={9} />
+        <div>
+          {Filter<Video, Theme>({name: 'filter-videos',originalList: videos, comparableList: extractThemes(), setStatus: setList})}
+        </div>
+        <div>
+          {list.map(item => (<p>{item.title}</p>))}
+        </div>
       </ContainerMiddle>
     </Row>
   )
 }
+
+function extractThemes() {
+
+  const themes = [] as Theme[]
+
+  for (let video of videos) {
+    const have = themes.some(theme => theme.equals(video.theme))
+
+    if (!have)
+      themes.push(video.theme)
+  }
+
+  return themes
+}
+
+/**
+<Row>
+  <ContainerMiddle>
+    <Filter filters={temas} onClick={fnClick}>
+      <Order />
+    </Filter>
+    <Pagination list={list} sizePage={9} />
+  </ContainerMiddle>
+</Row>
+ */

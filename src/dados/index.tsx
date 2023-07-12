@@ -1,184 +1,70 @@
-import { IVideo } from '@/types/props';
+import { Comparable, Selectable } from '@/components/shared/Filter';
 
-export const listaDeVideos: Array<IVideo> = [
+const dados = [
   {
     url: '',
     image: '/img/thumbnail.png',
-    title: 'Como aumentar sua Geração de Leads feat. Traktor1',
+    title: 'Como aumentar sua Geração de Leads feat. GL 1',
     tema: 'Geração de Leads'
   },
   {
     url: '',
     image: '/img/thumbnail.png',
-    title: 'Como aumentar sua Geração de Leads feat. Traktor2',
-    tema: 'Geração de Leads'
+    title: 'Como aumentar sua Geração de Leads feat. Agências',
+    tema: 'Agência'
   },
   {
     url: '',
     image: '/img/thumbnail.png',
-    title: 'Como aumentar sua Geração de Leads feat. Traktor3',
-    tema: 'Geração de Leads'
-  },
-  {
-    url: '',
-    image: '/img/thumbnail.png',
-    title: 'Como aumentar sua Geração de Leads feat. Traktor4',
-    tema: 'Geração de Leads'
-  },
-  {
-    url: '',
-    image: '/img/thumbnail.png',
-    title: 'Como aumentar sua Geração de Leads feat. Traktor5',
-    tema: 'Geração de Leads'
-  },
-  {
-    url: '',
-    image: '/img/thumbnail.png',
-    title: 'Como aumentar sua Geração de Leads feat. Traktor6',
-    tema: 'Geração de Leads'
-  },
-  {
-    url: '',
-    image: '/img/thumbnail.png',
-    title: 'Como aumentar sua Geração de Leads feat. Traktor7',
-    tema: 'Geração de Leads'
-  },
-  {
-    url: '',
-    image: '/img/thumbnail.png',
-    title: 'Como aumentar sua Geração de Leads feat. Traktor8',
-    tema: 'Geração de Leads'
-  },
-  {
-    url: '',
-    image: '/img/thumbnail.png',
-    title: 'Como aumentar sua Geração de Leads feat. Traktor9',
-    tema: 'Geração de Leads'
-  },
-  {
-    url: '',
-    image: '/img/thumbnail.png',
-    title: 'Como aumentar sua Geração de Leads feat. Traktor10',
-    tema: 'Geração de Leads'
-  },
-  {
-    url: '',
-    image: '/img/thumbnail.png',
-    title: 'Como aumentar sua Geração de Leads feat. Traktor11',
-    tema: 'Geração de Leads'
-  },
-  {
-    url: '',
-    image: '/img/thumbnail.png',
-    title: 'Como aumentar sua Geração de Leads feat. Traktor12',
-    tema: 'Geração de Leads'
-  },
-  {
-    url: '',
-    image: '/img/thumbnail.png',
-    title: 'Como aumentar sua Geração de Leads feat. Traktor13',
-    tema: 'Geração de Leads'
-  },
-  {
-    url: '',
-    image: '/img/thumbnail.png',
-    title: 'Como aumentar sua Geração de Leads feat. Traktor4',
-    tema: 'Geração de Leads'
-  },
-  {
-    url: '',
-    image: '/img/thumbnail.png',
-    title: 'Como aumentar sua Geração de Leads feat. Traktor15',
-    tema: 'Geração de Leads'
-  },
-  {
-    url: '',
-    image: '/img/thumbnail.png',
-    title: 'Como aumentar sua Geração de Leads feat. Traktor16',
-    tema: 'Geração de Leads'
-  },
-  {
-    url: '',
-    image: '/img/thumbnail.png',
-    title: 'Como aumentar sua Geração de Leads feat. Traktor17',
-    tema: 'Geração de Leads'
-  },
-  {
-    url: '',
-    image: '/img/thumbnail.png',
-    title: 'Como aumentar sua Geração de Leads feat. Traktor18',
-    tema: 'Geração de Leads'
-  },
-  {
-    url: '',
-    image: '/img/thumbnail.png',
-    title: 'Como aumentar sua Geração de Leads feat. Traktor19',
-    tema: 'Geração de Leads'
-  },
-  {
-    url: '',
-    image: '/img/thumbnail.png',
-    title: 'Como aumentar sua Geração de Leads feat. Traktor20',
-    tema: 'Geração de Leads'
-  },
-  {
-    url: '',
-    image: '/img/thumbnail.png',
-    title: 'Como aumentar sua Geração de Leads feat. Traktor21',
-    tema: 'Geração de Leads'
-  },
-  {
-    url: '',
-    image: '/img/thumbnail.png',
-    title: 'Como aumentar sua Geração de Leads feat. Traktor22',
-    tema: 'Geração de Leads'
-  },
-  {
-    url: '',
-    image: '/img/thumbnail.png',
-    title: 'Como aumentar sua Geração de Leads feat. Traktor23',
-    tema: 'Geração de Leads'
-  },
-  {
-    url: '',
-    image: '/img/thumbnail.png',
-    title: 'Como aumentar sua Geração de Leads feat. Traktor24',
-    tema: 'Geração de Leads'
-  },
-  {
-    url: '',
-    image: '/img/thumbnail.png',
-    title: 'Como aumentar sua Geração de Leads feat. Traktor1',
-    tema: 'Agências'
-  },
-  {
-    url: '',
-    image: '/img/thumbnail.png',
-    title: 'Como aumentar sua Geração de Leads feat. Traktor2',
-    tema: 'Agências'
-  },
-  {
-    url: '',
-    image: '/img/thumbnail.png',
-    title: 'Como aumentar sua Geração de Leads feat. Traktor1',
-    tema: 'Marketing Digital'
-  },
-  {
-    url: '',
-    image: '/img/thumbnail.png',
-    title: 'Como aumentar sua Geração de Leads feat. Traktor15',
-    tema: 'Chatbot'
-  },
-  {
-    url: '',
-    image: '/img/thumbnail.png',
-    title: 'Como aumentar sua Geração de Leads feat. Traktor15',
-    tema: 'Mídia Paga'
-  },
-  {
-    url: '',
-    image: '/img/thumbnail.png',
-    title: 'Como aumentar sua Geração de Leads feat. Traktor1',
+    title: 'Como aumentar sua Geração de Leads feat. Chatbot',
     tema: 'Chatbot'
   }
 ]
+
+export class Theme implements Comparable {
+
+  constructor(private _description: string){}
+
+  get description() {
+    return this._description
+  }
+
+  equals(object: Comparable): boolean {
+    
+    if(!(object instanceof Theme))
+      return false
+    
+    const o = object as Theme;
+
+    return o._description === this._description
+  }
+}
+
+export class Video implements Selectable {
+
+  constructor(private _url: string, private _title: string, private _image: string, private _theme: Theme){}
+
+  get url() {
+    return this._title
+  }
+
+  get title() {
+    return this._title
+  }
+
+  get image() {
+    return this._image
+  }
+
+  get theme() {
+    return this._theme
+  }
+
+  select(object: Comparable): boolean {
+    return this._theme.equals(object)
+  }
+}
+
+export const videos = dados.map(item => new Video(item.url, item.title, item.image, new Theme(item.tema)))
+
+dados.length = 0

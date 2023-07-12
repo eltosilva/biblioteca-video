@@ -8,7 +8,7 @@ export const ContainerFilter = styled(Container)`
   justify-content: space-between;
 
   `
-export const List = styled.ul`
+export const ListFilter = styled.ul`
   display: flex;
   justify-content: space-between;
   gap: 2rem;
@@ -16,7 +16,7 @@ export const List = styled.ul`
   padding: 1rem 0;
 `
 
-export const ContainerOption = styled.li`
+export const BoxFilter = styled.li`
   display: flex;
   
   input[type="radio"] {
