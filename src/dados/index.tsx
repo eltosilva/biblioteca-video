@@ -1,4 +1,5 @@
 import { ComparatorFilter } from '@/components/shared/Filter';
+import { Organizer } from '@/components/shared/Stage';
 
 export interface IVideo {
   url: string,
@@ -9,7 +10,7 @@ export interface IVideo {
 
 export class ThemeComparator implements ComparatorFilter<IVideo> {
 
-  constructor(private value: string){}
+  constructor(private value: string) { }
 
   get label(): string {
     return this.value
@@ -20,6 +21,17 @@ export class ThemeComparator implements ComparatorFilter<IVideo> {
   }
 
 }
+
+export const VideoOrganizer: Organizer<IVideo>[] = [
+  {
+    label: 'A - Z',
+    sort: (videos: IVideo[]) => videos.sort((videoA, videoB) => videoA.title > videoB.title ? 1 : -1)
+  },
+  {
+    label: 'Z - A',
+    sort: (videos: IVideo[]) => videos.sort((videoA, videoB) => videoA.title > videoB.title ? -1 : 1)
+  }
+]
 
 export const videos: IVideo[] = [
   {

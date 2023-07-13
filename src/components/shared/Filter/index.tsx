@@ -19,16 +19,16 @@ export default function Filter<S, C extends ComparatorFilter<S>>({ name, origina
   )
 }
 
+export interface ComparatorFilter<T> {
+  label: string,
+  compareTo(object: T): boolean
+}
+
 interface IPropsFilter<S, C extends ComparatorFilter<S>> {
   originalList: S[],
   comparatorList: C[],
   setStatus: Dispatch<SetStateAction<S[]>>,
   name: string
-}
-
-export interface ComparatorFilter<T> {
-  label: string,
-  compareTo(object: T): boolean
 }
 
 function filterFactory<T>(standard: ComparatorFilter<T>) {
