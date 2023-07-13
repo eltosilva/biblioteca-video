@@ -6,5 +6,9 @@ import { styled } from 'styled-components'
 export const ContainerMiddle = styled(Container)`
   display: flex;
   flex-direction: column;
-  align-items: center;
+`
+
+export const ToolBar = styled.div`
+  display: flex;
+  justify-content: space-between;
 `

@@ -1,45 +1,38 @@
 import { Dispatch, SetStateAction } from 'react'
-import { BoxFilter, ContainerFilter, ListFilter } from './styles'
+import { LabelFilter, ListFilter, RadioFilter } from './styles'
 
-export default function Filter<S extends Selectable, C extends Comparable>({ name, originalList, comparableList, setStatus }: IPropsFilter<S, C>) {
+export default function Filter<S, C extends ComparatorFilter<S>>({ name, originalList, comparatorList, setStatus }: IPropsFilter<S, C>) {
 
   return (
-    <ContainerFilter>
-      <ListFilter>
-        {comparableList.map((comparable, index) => {
-          const fn = filterFactory<S>(comparable)
+    <ListFilter>
+      {comparatorList.map((comparator, index) => {
+        const fn = filterFactory<S>(comparator)
 
-          return (
-            <BoxFilter>
-              <input type='radio' id={name + index} name={name} onChange={() => setStatus(fn(originalList))} />
-              <label htmlFor={name + index}>{comparable.description}</label>
-            </BoxFilter>
-          )
-        })}
-      </ListFilter>
-    </ContainerFilter>
+        return (
+          <li key={name + index}>
+            <RadioFilter type='radio' id={name + index} name={name} onChange={() => setStatus(fn(originalList))} />
+            <LabelFilter htmlFor={name + index}>{comparator.label}</LabelFilter>
+          </li>
+        )
+      })}
+    </ListFilter>
   )
 }
 
-interface IPropsFilter<S extends Selectable, C extends Comparable> {
+interface IPropsFilter<S, C extends ComparatorFilter<S>> {
   originalList: S[],
-  comparableList: C[],
+  comparatorList: C[],
   setStatus: Dispatch<SetStateAction<S[]>>,
   name: string
 }
 
-//Dispatch<SetStateAction<V[]>>
-export interface Comparable {
-  description: string
-  equals(object: Comparable): boolean
+export interface ComparatorFilter<T> {
+  label: string,
+  compareTo(object: T): boolean
 }
 
-export interface Selectable {
-  select(object: Comparable): boolean
-}
-
-export function filterFactory<T extends Selectable>(standard: Comparable) {
+function filterFactory<T>(standard: ComparatorFilter<T>) {
   return (objects: T[]) => {
-    return objects.filter(object => object.select(standard))
+    return objects.filter(object => standard.compareTo(object))
   }
 }

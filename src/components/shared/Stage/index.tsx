@@ -1,6 +1,9 @@
 import { Container } from './styles';
 
-export default function Order() {
+export default function Stage() {
+  let c: Organizeable = new Filha()
+
+
   return (
     <Container>
       <label htmlFor="">Ordenar Por</label>
@@ -12,3 +15,17 @@ export default function Order() {
     </Container>
   )
 }
+
+export enum EnumOrder {
+  ASC,
+  DESC
+}
+
+export class Organizeable {
+  static valorEstatico: string = 'Classe Organizable'
+}
+
+class Filha extends Organizeable {
+  static valorEstatico: string = 'Classe Filha'
+}
+

@@ -1,10 +1,11 @@
 'use client'
 
-import Filter, { Comparable, filterFactory } from '@/components/shared/Filter';
-import { ContainerMiddle } from './styles';
+import Filter, { ComparatorFilter } from '@/components/shared/Filter';
+import { ContainerMiddle, ToolBar } from './styles';
 import { Row } from '@/components/shared/Styles';
-import { Theme, Video, videos } from '@/dados'
+import { IVideo, ThemeComparator, videos } from '@/dados'
 import { useState } from 'react';
+import Stage from '@/components/shared/Stage';
 
 const themes = extractThemes()
 
@@ -15,11 +16,12 @@ export default function Middle() {
   return (
     <Row>
       <ContainerMiddle>
+        <ToolBar>
+          <Filter name='filter-videos' originalList={videos} comparatorList={extractThemes()} setStatus={setList} />
+          <Stage />
+        </ToolBar>
         <div>
-          {Filter<Video, Theme>({name: 'filter-videos',originalList: videos, comparableList: extractThemes(), setStatus: setList})}
-        </div>
-        <div>
-          {list.map(item => (<p>{item.title}</p>))}
+          {list.map(item => (<p key={item.title}>{item.title}</p>))}
         </div>
       </ContainerMiddle>
     </Row>
@@ -27,26 +29,16 @@ export default function Middle() {
 }
 
 function extractThemes() {
+    
+  const comparators = [] as ComparatorFilter<IVideo>[]
 
-  const themes = [] as Theme[]
+  for (let video of videos){
+    const have = comparators.some( comparator => comparator.label === video.theme)
 
-  for (let video of videos) {
-    const have = themes.some(theme => theme.equals(video.theme))
-
-    if (!have)
-      themes.push(video.theme)
+    if(!have)
+      comparators.push(new ThemeComparator(video.theme))
   }
 
-  return themes
-}
+  return comparators
 
-/**
-<Row>
-  <ContainerMiddle>
-    <Filter filters={temas} onClick={fnClick}>
-      <Order />
-    </Filter>
-    <Pagination list={list} sizePage={9} />
-  </ContainerMiddle>
-</Row>
- */
+}
