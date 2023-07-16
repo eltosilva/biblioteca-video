@@ -3,9 +3,10 @@ import { Organizer } from '@/components/shared/Stage';
 
 export interface IVideo {
   url: string,
-  image: string,
+  srcImage: string,
   title: string,
-  theme: string
+  theme: string,
+  description: string
 }
 
 export class ThemeComparator implements ComparatorFilter<IVideo> {
@@ -35,21 +36,24 @@ export const VideoOrganizer: Organizer<IVideo>[] = [
 
 export const videos: IVideo[] = [
   {
-    url: '',
-    image: '/img/thumbnail.png',
+    url: 'https://www.youtube.com/embed/EW6QAM4ypVE',
+    srcImage: '/img/thumbnail.png',
     title: 'Como aumentar sua Geração de Leads feat. GL 1',
-    theme: 'Geração de Leads'
+    theme: 'Geração de Leads',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus consequat, est non maximus pretium, arcu justo rhoncus ligula, vel tristique erat diam non quam. Aenean tristique tristique pellentesque. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.'
   },
   {
-    url: '',
-    image: '/img/thumbnail.png',
+    url: 'https://www.youtube.com/embed/EW6QAM4ypVE',
+    srcImage: '/img/thumbnail.png',
     title: 'Como aumentar sua Geração de Leads feat. Agências',
-    theme: 'Agência'
+    theme: 'Agência',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus consequat, est non maximus pretium, arcu justo rhoncus ligula, vel tristique erat diam non quam. Aenean tristique tristique pellentesque. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.'
   },
   {
-    url: '',
-    image: '/img/thumbnail.png',
+    url: 'https://www.youtube.com/embed/EW6QAM4ypVE',
+    srcImage: '/img/thumbnail.png',
     title: 'Como aumentar sua Geração de Leads feat. Chatbot',
-    theme: 'Chatbot'
+    theme: 'Chatbot',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus consequat, est non maximus pretium, arcu justo rhoncus ligula, vel tristique erat diam non quam. Aenean tristique tristique pellentesque. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.'
   }
 ]

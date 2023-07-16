@@ -1,8 +1,8 @@
-import Card from '../Card';
+import Card from './Card';
 import { ContainerPagination, DashBoard } from './styles';
 import NavBar from './NavBar';
 import { useState } from 'react';
-import { IVideo } from '@/types/props';
+import { IVideo } from '@/dados';
 
 export default function Pagination({ list, sizePage }: IPropsPagination) {
 
@@ -28,4 +28,10 @@ export default function Pagination({ list, sizePage }: IPropsPagination) {
 export interface IPropsPagination {
   list: Array<IVideo>,
   sizePage: number
+}
+
+interface IValuePagination {
+  url: string,
+  srcImage: string,
+  title: string
 }

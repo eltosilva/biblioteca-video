@@ -4,15 +4,15 @@ import Filter, { ComparatorFilter } from '@/components/shared/Filter';
 import { ContainerMiddle, ToolBar } from './styles';
 import { Row } from '@/components/shared/Styles';
 import { IVideo, ThemeComparator, VideoOrganizer, videos } from '@/dados'
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import Stage from '@/components/shared/Stage';
-import Pagination from '@/components/shared/Pagination';
-
-const themes = extractThemes()
+import Pagination from '@/components/Home/Middle/Pagination';
+import { ContextHome } from '..';
 
 export default function Middle() {
 
   const [list, setList] = useState(videos)
+  const setModal = useContext(ContextHome)
 
   return (
     <Row>
@@ -27,14 +27,25 @@ export default function Middle() {
   )
 }
 
+/*
+<iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/EW6QAM4ypVE"
+  title="YouTube video player"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowFullScreen
+></iframe>
+*/
+
 function extractThemes() {
-    
+
   const comparators = [] as ComparatorFilter<IVideo>[]
 
-  for (let video of videos){
-    const have = comparators.some( comparator => comparator.label === video.theme)
+  for (let video of videos) {
+    const have = comparators.some(comparator => comparator.label === video.theme)
 
-    if(!have)
+    if (!have)
       comparators.push(new ThemeComparator(video.theme))
   }
 
