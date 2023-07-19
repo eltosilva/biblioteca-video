@@ -15,7 +15,7 @@ export default function Card({ value }: IPropsCard) {
 
   const setModal = useContext(ContextHome)
   return (
-    <Container onClick={() => setModal(<Modal width="520px" height="700px" setThis={setModal}><Player value={value} /></Modal>)}>
+    <Container onClick={() => setModal(<Modal width="620px" height="750px" setThis={setModal}><Player value={value} /></Modal>)}>
       <CardImage>
         <img src={value.srcImage} alt="" />
         <PlayerImage>

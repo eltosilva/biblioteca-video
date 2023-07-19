@@ -66,9 +66,9 @@ export default () => {
           <Column>
             <h3>Siga a Leadster</h3>
             <SocialNetwork>
-              <Linkedin />
-              <Facebook />
-              <Instagran />
+              <Linkedin url='https://www.linkedin.com/company/leadster-platform/' />
+              <Facebook url='https://www.facebook.com/leadsterplatform' />
+              <Instagran url='https://www.instagram.com/leadster.com.br/' />
             </SocialNetwork>
             <Contacts>
               <p>

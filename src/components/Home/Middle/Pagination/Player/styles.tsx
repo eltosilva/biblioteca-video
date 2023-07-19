@@ -29,3 +29,9 @@ export const Description = styled.p`
   text-align: justify;
   padding: 0.5rem 0;
 `
+
+export const DownloadContainer = styled.div`
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+`
