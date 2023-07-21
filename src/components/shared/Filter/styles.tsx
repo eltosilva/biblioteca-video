@@ -2,13 +2,6 @@
 
 import { styled } from 'styled-components'
 
-export const ListFilter = styled.ul`
-  display: flex;
-  justify-content: space-between;
-  gap: 2rem;
-  list-style: none;
-  padding: 1rem 0;
-`
 export const LabelFilter = styled.label`
   display: inline-block;
   border: solid 2px #1c3c50;

@@ -1,38 +1,19 @@
-import { Dispatch, SetStateAction } from 'react'
-import { LabelFilter, ListFilter, RadioFilter } from './styles'
+import { MouseEventHandler } from 'react'
+import { LabelFilter, RadioFilter } from './styles'
+import { IProps } from '@/types/props'
 
-export default function Filter<S, C extends ComparatorFilter<S>>({ name, originalList, comparatorList, setStatus }: IPropsFilter<S, C>) {
-
+export default function Filter({children, id, name, onClick}: IPropsFilter) {
+  
   return (
-    <ListFilter>
-      {comparatorList.map((comparator, index) => {
-        const fn = filterFactory<S>(comparator)
-
-        return (
-          <li key={name + index}>
-            <RadioFilter type='radio' id={name + index} name={name} onChange={() => setStatus(fn(originalList))} />
-            <LabelFilter htmlFor={name + index}>{comparator.label}</LabelFilter>
-          </li>
-        )
-      })}
-    </ListFilter>
+    <>
+      <RadioFilter type='radio' id={id} name={name} onClick={onClick} />
+      <LabelFilter htmlFor={id} role='button'>{children}</LabelFilter>
+    </>
   )
 }
 
-export interface ComparatorFilter<T> {
-  label: string,
-  compareTo(object: T): boolean
-}
-
-interface IPropsFilter<S, C extends ComparatorFilter<S>> {
-  originalList: S[],
-  comparatorList: C[],
-  setStatus: Dispatch<SetStateAction<S[]>>,
-  name: string
-}
-
-function filterFactory<T>(standard: ComparatorFilter<T>) {
-  return (objects: T[]) => {
-    return objects.filter(object => standard.compareTo(object))
-  }
+interface IPropsFilter extends IProps {
+  id: string,
+  name: string,
+  onClick: MouseEventHandler<HTMLInputElement>,
 }

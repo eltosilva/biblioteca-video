@@ -1,4 +1,4 @@
-import { ChangeEvent, Dispatch, SetStateAction } from 'react';
+import { Dispatch, SetStateAction } from 'react';
 import { ContainerStage, LabelStage, SelectStage } from './styles';
 
 export interface IPropsStage<T> {
@@ -18,15 +18,9 @@ export default function Stage<T>({organizers, input}: IPropsStage<T>) {
   return (
     <ContainerStage>
       <LabelStage htmlFor="">Ordenar Por</LabelStage>
-      <SelectStage onChange={(event: ChangeEvent<HTMLSelectElement>) => {
-        const index = parseInt(event.target.value)
-        const newList = [...organizers[index].sort(list)]
-
-        setList(newList)
-      }}>
-        <option value="">Selecione..</option>
+      <SelectStage >
         {organizers.map((organizer, index) => (
-          <option key={index} value={index}>{organizer.label}</option>
+          <option key={index} value={index} onClick={() => setList([...organizer.sort(list)]) } >{organizer.label}</option>
         ))}
       </SelectStage>
     </ContainerStage>
